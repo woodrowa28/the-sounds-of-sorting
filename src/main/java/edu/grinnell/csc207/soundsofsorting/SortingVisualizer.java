@@ -1,5 +1,8 @@
 package edu.grinnell.csc207.soundsofsorting;
 
+import edu.grinnell.csc207.soundsofsorting.audio.NoteIndices;
+import edu.grinnell.csc207.soundsofsorting.rendering.ControlPanel;
+import edu.grinnell.csc207.soundsofsorting.rendering.ArrayPanel;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;

@@ -1,5 +1,8 @@
-package edu.grinnell.csc207.soundsofsorting;
+package edu.grinnell.csc207.soundsofsorting.rendering;
 
+import edu.grinnell.csc207.soundsofsorting.audio.NoteIndices;
+import edu.grinnell.csc207.soundsofsorting.audio.Scale;
+import edu.grinnell.csc207.soundsofsorting.rendering.ArrayPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
