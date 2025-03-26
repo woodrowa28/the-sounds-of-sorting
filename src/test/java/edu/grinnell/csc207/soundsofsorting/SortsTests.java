@@ -23,7 +23,7 @@ public class SortsTests {
         return true;
     }
 
-    public static Integer[] makeTestArray() {
+    public static Integer[] makeGenArray() {
         return new Integer[] {
             3, 7, 9, 1, 2,
             18, 16, 15, 19, 8,
@@ -31,40 +31,84 @@ public class SortsTests {
             6, 0, 17, 11, 10
         };
     }
+    
+    public static Integer[] makeSortedArray() {
+        return new Integer[] {
+            1, 2, 3, 4, 5, 6, 7, 8,
+            9, 10, 11, 12, 13, 14, 15
+        };
+    }
+    
+    public static Integer[] makeBackwardsArray() {
+        return new Integer[] {
+            14, 13, 12, 11, 10, 9,
+            8, 7, 6, 5, 4, 3, 2, 1
+        };
+    }
+    
+    public static Integer[] makeLongArray() {
+        Integer[] arr = new Integer[100];
+        for(int i = 0; i < 100; i++) {
+            arr[i] = i;
+        }
+        return arr;
+    }
+    
+    public static Integer[] makeAlmostSortedArray() {
+        return new Integer[] {
+            15, 1, 2, 3, 4, 5, 6, 7,
+            8, 9, 10, 11, 12, 13, 14
+        };
+    }
 
-    public void testSort(Consumer<Integer[]> func) {
-        Integer[] arr = makeTestArray();
+    public void testSort(Consumer<Integer[]> func, Integer[] arr) {
         func.accept(arr);
         assertTrue(sorted(arr));
+    }
+    
+    public void generalTests(Consumer<Integer[]> func) {
+        testSort(func, makeSortedArray());
+        testSort(func, makeGenArray());
+        testSort(func, makeBackwardsArray());
+        testSort(func, makeLongArray());
+        testSort(func, makeAlmostSortedArray());
     }
 
     @Test
     public void testBubbleSort() {
-        testSort(Sorts::bubbleSort);
+        generalTests(Sorts::bubbleSort);
     }
     
     @Test
     public void testInsertionSort() {
-        testSort(Sorts::insertionSort);
+        generalTests(Sorts::insertionSort);
     }
     
     @Test
     public void testSelectionSort() {
-        testSort(Sorts::selectionSort);
+        generalTests(Sorts::selectionSort);
     }
 
     @Test
     public void testMergeSort() {
-        testSort(Sorts::mergeSort);
+        generalTests(Sorts::mergeSort);
+        Integer[] edgeMergesArr = new Integer[] {
+            2, 6, 9, 10, 21, 71, 13, 7, 9, 1
+        };
+        testSort(Sorts::mergeSort, edgeMergesArr);
     }
     
     @Test
     public void testQuickSort() {
-        testSort(Sorts::quickSort);
+        generalTests(Sorts::quickSort);
+        Integer[] edgePartitionsArr = new Integer[] {
+            5, 9, 6, 10, 45, 13, 19, 2, 7
+        };
+        testSort(Sorts::quickSort, edgePartitionsArr);
     }
     
     @Test
     public void testGnomeSort() {
-        testSort(Sorts::gnomeSort);
+        generalTests(Sorts::gnomeSort);
     }
 }

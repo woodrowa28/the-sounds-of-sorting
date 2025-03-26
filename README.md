@@ -10,7 +10,6 @@ Author: Aubrey Woodrow
     - Provided instructions for project
 + Sorts.java file from the SortsLab by Aubrey Woodrow and Lauren Ajax
     https://github.com/LaurenAjax/sortslab (Forked from psosera)
-    - Wrote sorts myself (for extra practice), but referenced our lab code for
-    assistance when stuck.
+    - Copied (and slightly edited) quickSort and mergeSort code
 + Wikipedia article for Gnome sort https://en.wikipedia.org/wiki/Gnome_sort
     - Used description and pseudocode for implementation help
