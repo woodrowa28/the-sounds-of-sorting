@@ -13,7 +13,7 @@ public class CopyEvent<T> implements SortEvent<T> {
     
     T element;
     
-    public CopyEvent(T e, int i) {
+    public CopyEvent(int i, T e) {
         indices = new ArrayList();
         indices.add(i);
         element = e;
