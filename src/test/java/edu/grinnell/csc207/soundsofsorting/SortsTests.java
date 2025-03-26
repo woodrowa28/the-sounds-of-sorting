@@ -27,9 +27,10 @@ public class SortsTests {
         return true;
     }
     
-    public static <T extends Comparable<? super T>> void applyList(T[] arr, List<SortEvent<T>> events) {
-        for(SortEvent<T> event : events) {
-            event.apply(arr);
+    public static <T extends Comparable<? super T>> void eventSort(
+            T[] originalArr, List<SortEvent<T>> l) {
+        for(SortEvent<T> event : l) {
+            event.apply(originalArr);
         }
     }
 
@@ -75,7 +76,7 @@ public class SortsTests {
         Integer[] arrApply = Arrays.copyOf(arr, arr.length);
         List<SortEvent<Integer>> events = func.apply(arr);
         assertTrue(sorted(arr));
-        applyList(arrApply, events);
+        eventSort(arrApply, events);
         assertTrue(sorted(arrApply));
     }
     
