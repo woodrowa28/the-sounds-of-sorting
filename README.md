@@ -10,6 +10,10 @@ Author: Aubrey Woodrow
     - Provided instructions for project
 + Sorts.java file from the SortsLab by Aubrey Woodrow and Lauren Ajax
     https://github.com/LaurenAjax/sortslab (Forked from psosera)
-    - Copied (and slightly edited) quickSort and mergeSort code
+    - Copied (and edited) quickSort code, referenced for mergeSort help
 + Wikipedia article for Gnome sort https://en.wikipedia.org/wiki/Gnome_sort
     - Used description and pseudocode for implementation help
++ Java 8 Function Interface API 
+    https://docs.oracle.com/javase/8/docs/api/?java/util/function/package-summary.html
+    - Provided information for changing Consumer functions in the tests to
+    Functions so they could produce the SortEvent list output

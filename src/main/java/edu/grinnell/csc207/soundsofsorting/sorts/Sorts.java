@@ -128,7 +128,7 @@ public class Sorts {
                 }
             }
         }
-        return null;
+        return events;
     }
 
     /**

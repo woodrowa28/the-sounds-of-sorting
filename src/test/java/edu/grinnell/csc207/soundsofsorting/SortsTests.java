@@ -2,17 +2,21 @@ package edu.grinnell.csc207.soundsofsorting;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.function.Consumer;
+import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Arrays;
+
 import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
+import edu.grinnell.csc207.soundsofsorting.sortevents.*;
 
 public class SortsTests {
     /**
      * @param <T> the carrier type of the array
      * @param arr the array to check
-     * @return true iff <code>arr</code> is sorted.
+     * @return true if <code>arr</code> is sorted.
      */
     public static <T extends Comparable<? super T>> boolean sorted(T[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
@@ -21,6 +25,12 @@ public class SortsTests {
             }
         }
         return true;
+    }
+    
+    public static <T extends Comparable<? super T>> void applyList(T[] arr, List<SortEvent<T>> events) {
+        for(SortEvent<T> event : events) {
+            event.apply(arr);
+        }
     }
 
     public static Integer[] makeGenArray() {
@@ -61,12 +71,15 @@ public class SortsTests {
         };
     }
 
-    public void testSort(Consumer<Integer[]> func, Integer[] arr) {
-        func.accept(arr);
+    public void testSort(Function<Integer[], List<SortEvent<Integer>>> func, Integer[] arr) {
+        Integer[] arrApply = Arrays.copyOf(arr, arr.length);
+        List<SortEvent<Integer>> events = func.apply(arr);
         assertTrue(sorted(arr));
+        applyList(arrApply, events);
+        assertTrue(sorted(arrApply));
     }
     
-    public void generalTests(Consumer<Integer[]> func) {
+    public void generalTests(Function<Integer[], List<SortEvent<Integer>>> func) {
         testSort(func, makeSortedArray());
         testSort(func, makeGenArray());
         testSort(func, makeBackwardsArray());
