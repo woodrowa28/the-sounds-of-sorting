@@ -2,6 +2,7 @@ package edu.grinnell.csc207.soundsofsorting.rendering;
 import edu.grinnell.csc207.soundsofsorting.audio.NoteIndices;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -25,6 +26,23 @@ public class ArrayPanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
-        // TODO: fill me in!
+        int numNotes = notes.getNotes().length;
+        int barWidth = getWidth() / numNotes;
+        int heightUnit = getHeight() / numNotes;
+        int rectHeight;
+        
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        
+        for(int i = 0; i < numNotes; i++) {
+            int currNote = notes.getNotes()[i];
+            g.setColor(new Color(0, 255 * (currNote + 1) / numNotes / 2, 
+                    255 * (1 - currNote / numNotes) / 2));
+            if (notes.isHighlighted(i)) {
+                g.setColor(g.getColor().brighter());
+            }
+            rectHeight = (currNote + 1) * heightUnit;
+            g.fillRect(i * barWidth, getHeight() - rectHeight, barWidth, rectHeight);
+        }
     }
 }

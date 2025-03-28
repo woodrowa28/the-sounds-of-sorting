@@ -15,8 +15,13 @@ Author: Aubrey Woodrow
     - Used description and pseudocode for implementation help
 + Java 8 Function Interface API 
     https://docs.oracle.com/javase/8/docs/api/?java/util/function/package-summary.html
-    - Provided information for changing Consumer functions in the tests to
+    - Provided information for changing Consumer parameters in the tests to
     Functions so they could produce the SortEvent list output
+Java 8 JPanel, Graphics, and Color API 
+https://docs.oracle.com/javase/8/docs/api/javax/swing/JPanel.html
+https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
+https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html
+    - Referenced to get information about ArrayPanel inhertied methods
 + BlockyGame.java file from the blocky project by Aubrey Woodrow
     https://github.com/woodrowa28/blocky (forked from psosera)
     - Used shuffle method for Fisher-Yates shuffle base

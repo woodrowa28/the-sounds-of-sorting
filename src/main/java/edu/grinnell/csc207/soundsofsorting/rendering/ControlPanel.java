@@ -2,7 +2,6 @@ package edu.grinnell.csc207.soundsofsorting.rendering;
 
 import edu.grinnell.csc207.soundsofsorting.audio.NoteIndices;
 import edu.grinnell.csc207.soundsofsorting.audio.Scale;
-import edu.grinnell.csc207.soundsofsorting.rendering.ArrayPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -15,6 +14,7 @@ import javax.swing.JPanel;
 
 import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
 import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
+import java.util.Arrays;
 
 /**
  * The Control Panel houses the GUI for interacting with the Sounds of
@@ -141,10 +141,9 @@ public class ControlPanel extends JPanel {
                 }
                 isSorting = true;
                 
-                // TODO: fill me in!
-                // 1. Create the sorting events list
-                // 2. Add in the compare events to the end of the list
-                List<SortEvent<Integer>> events = new java.util.LinkedList<>();
+                List<SortEvent<Integer>> events = generateEvents(
+                        (String) sorts.getSelectedItem(),
+                        Arrays.copyOf(notes.getNotes(), scale.size()));
                 
                 // NOTE: The Timer class repetitively invokes a method at a
                 //       fixed interval.  Here we are specifying that method
@@ -158,15 +157,17 @@ public class ControlPanel extends JPanel {
                     @Override
                     public void run() {
                         if (index < events.size()) {
+                            notes.clearAllHighlighted();
                             SortEvent<Integer> e = events.get(index++);
-                            // TODO: fill me in!
-                            // 1. Apply the next sort event.
-                            // 3. Play the corresponding notes denoted by the
-                            //    affected indices logged in the event.
-                            // 4. Highlight those affected indices.
+                            e.apply(notes.getNotes());
+                            for (Integer note : e.getAffectedIndices()) {
+                                notes.highlightNote(note);
+                                scale.playNote(note, e.isEmphasized());
+                            }
                             panel.repaint();
                         } else {
                             this.cancel();
+                            notes.clearAllHighlighted();
                             panel.repaint();
                             isSorting = false;
                         }

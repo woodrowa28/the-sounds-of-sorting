@@ -1,6 +1,7 @@
 package edu.grinnell.csc207.soundsofsorting.audio;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A collection of indices into a Scale object.
@@ -16,7 +17,7 @@ public class NoteIndices {
      * @param n the size of the scale object that these indices map into
      */
     public NoteIndices(int n) {
-        initializeAndShuffle(n);
+        notes = new Integer[n];
         highlightedNotes = new ArrayList();
     }
     
@@ -34,7 +35,7 @@ public class NoteIndices {
         
         // Shuffle algorithm from woodrow28/blocky/BlockyGame.java
         for (int i = notes.length - 1; i > 0; i--) {
-            int rand = new java.util.Random().nextInt(i + 1);
+            int rand = new Random().nextInt(i + 1);
             Integer temp = notes[i];
             notes[i] = notes[rand];
             notes[rand] = temp;
