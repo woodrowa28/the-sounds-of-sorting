@@ -17,3 +17,8 @@ Author: Aubrey Woodrow
     https://docs.oracle.com/javase/8/docs/api/?java/util/function/package-summary.html
     - Provided information for changing Consumer functions in the tests to
     Functions so they could produce the SortEvent list output
++ BlockyGame.java file from the blocky project by Aubrey Woodrow
+    https://github.com/woodrowa28/blocky (forked from psosera)
+    - Used shuffle method for Fisher-Yates shuffle base
++ Consulted PM Osera for minor clarifications
+    - Specific usage of CompareEvent in mergeSort
