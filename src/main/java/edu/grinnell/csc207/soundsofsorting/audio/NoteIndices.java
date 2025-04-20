@@ -61,7 +61,7 @@ public class NoteIndices {
      */
     public boolean isHighlighted(int index) {
         for (Integer note : highlightedNotes) {
-            if(note.equals(index)) {
+            if (note.equals(index)) {
                 return true;
             }
         }

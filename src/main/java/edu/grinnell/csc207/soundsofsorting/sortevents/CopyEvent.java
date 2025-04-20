@@ -13,6 +13,11 @@ public class CopyEvent<T> implements SortEvent<T> {
     
     T element;
     
+    /**
+     * Creates a new Copy event with the given index and element
+     * @param i index affected (spot copied into)
+     * @param e element to copy
+     */
     public CopyEvent(int i, T e) {
         indices = new ArrayList();
         indices.add(i);

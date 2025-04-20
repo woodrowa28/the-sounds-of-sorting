@@ -34,7 +34,7 @@ public class ArrayPanel extends JPanel {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, getWidth(), getHeight());
         
-        for(int i = 0; i < numNotes; i++) {
+        for (int i = 0; i < numNotes; i++) {
             int currNote = notes.getNotes()[i];
             g.setColor(new Color(0, 255 * (currNote + 1) / numNotes / 2, 
                     255 * (1 - currNote / numNotes) / 2));

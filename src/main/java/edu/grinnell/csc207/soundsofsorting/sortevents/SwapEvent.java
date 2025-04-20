@@ -12,6 +12,11 @@ public class SwapEvent<T> implements SortEvent<T> {
 
     List<Integer> indices;
 
+    /**
+     * Creates a new Swap event with the given indices
+     * @param ind1 first index affected
+     * @param ind2 second index affected
+     */
     public SwapEvent(int ind1, int ind2) {
         indices = new ArrayList();
         indices.add(ind1);

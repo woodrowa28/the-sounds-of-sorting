@@ -12,6 +12,11 @@ public class CompareEvent<T> implements SortEvent<T> {
     
     private List<Integer> indices;
     
+    /**
+     * Creates a new Compare event with the given indices
+     * @param ind1 first index affected
+     * @param ind2 second index affected
+     */
     public CompareEvent(int ind1, int ind2) {
         indices = new ArrayList();
         indices.add(ind1);
