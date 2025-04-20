@@ -2,6 +2,9 @@
 
 Author: Aubrey Woodrow
 
+## Revisions
+- Fixed Maven checkstyle errors
+
 ## Resources
 
 + Code constructed with JDK23 using Apache NetBeans 24
@@ -28,10 +31,18 @@ https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html
 + Consulted PM Osera for minor clarifications
     - Specific usage of CompareEvent in mergeSort
 
-Git log:
+## Git log:
+
+commit cb4b0a173d17540f071d8f789b96309f3b4b9f9d (HEAD -> main, origin/main)
+Author: Aubrey Woodrow <woodrowa@grinnell.edu>
+Date:   Sun Apr 20 14:32:55 2025 -0500
+
+    Fixed checkstyle errors
+
 commit 1c5cec908b5305cd6f2f8ae610657f745ef5a526 (HEAD -> main)
 Author: Aubrey Woodrow <woodrowa@grinnell.edu>
 Date:   Fri Mar 28 18:58:58 2025 -0500
+
     Completed panels, both visual and practical implementation
 
 commit 5303cacb2fb10e271f3329462286c5ed6a52e399
